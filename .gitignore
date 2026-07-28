@@ -1,0 +1,50 @@
+# ==========================================
+# Keil MDK (c51 / ARM / UVision) 忽略规则
+# ==========================================
+
+# 1. 编译中间过程文件 & 目标文件
+*.o
+*.obj
+*.d
+*.crf
+*.elf
+*.axf
+*.map
+*.lst
+*.m51
+*.m66
+*.i
+*.sct.bak
+
+# 2. 编译输出的二进制镜像 (若需要上传 hex/bin 请将下面两行注释掉)
+*.hex
+*.bin
+
+# 3. Keil 自动生成的备份/日志/临时文件
+*.bak
+*.dep
+*.~*
+*.build_log.htm
+*.htm
+*.lnp
+*.sct
+
+# 4. Keil UI 个人视图状态/断点布局 (仅影响本地窗口分布，团队协作不宜上传)
+*.uvgui.*
+*.uvgui_*.bak
+
+# 5. J-Link / ST-Link 调试产生的临时文件
+JLinkLog.txt
+JLinkSettings.ini
+*.pbi
+*.browse
+
+# 6. 其它常见 IDE/系统杂项
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+.cache/
+compile_commands.json
+.clangd
+.clang-format
