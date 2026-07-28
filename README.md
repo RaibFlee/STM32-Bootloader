@@ -1,4 +1,4 @@
-# STM32 BootLoader DEMO
+# STM32 Bootloader DEMO
 
 这是一个基于 STM32 HAL 库开发的简易 Bootloader DEMO。
 
@@ -12,31 +12,41 @@
 
 ---
 
-## 📌 功能特点
 
-- 支持 USART + YMODEM 协议下载用户固件
-- 支持 Flash 擦除与固件写入
-- 支持 App 程序合法性检查
-  - MSP 栈顶地址检查
-  - Reset_Handler 地址检查
-  - Thumb 状态检查
-- 支持 Bootloader 跳转至 App
-- 支持 APP 向量表重定位
-- 基于 STM32 HAL 库实现
+## ✨ 功能特点
+
+- **固件可靠下载**
+  - 支持 **USART + DMA + 双缓冲区（Double Buffer）** 接收机制，实现串口数据接收与 Flash 编程操作并行处理，提高固件升级过程中的数据传输效率和稳定性
+  - 基于 **YMODEM** 协议完成用户固件传输
+
+- **Flash 擦写与编程**
+  - 支持 Flash 多扇区擦除与数据写入
+
+- **App 程序合法性检查**
+  - MSP 栈顶地址合法性检查
+  - Reset_Handler 入口地址检查
+  - Thumb 状态标志位检查
+
+- **安全跳转与异常提示**
+  - 支持安全跳转至用户 App 运行
+  - 支持 App 向量表重定位（VTOR）
+  - 若 App 校验失败，则进入异常提示流程（红灯闪烁）
+
+- **模块化设计**
+  - 基于 STM32 HAL 库实现，Bootloader 核心逻辑与 HAL 初始化代码分离
 
 ---
 
 
 ## 🛠️ 硬件与环境
 * **MCU**: STM32F407ZGT6
-- **IDE**: Keil MDK
-- **Configuration Tool**: STM32CubeMX
-- **MCU Framework**: STM32Cube_FW_F4_V1.28.3
+- **开发工具**: Keil MDK，STM32CubeMX
+- **HAL VERSION**: STM32Cube_FW_F4_V1.28.3
 
 ## 📂 目录结构
-* `Core/`: STM32CUBEMX生成的外设初始化代码以及main.c
+* `Core/`: STM32CubeMX 生成的外设初始化代码以及main.c
 * `Drivers/`: STM32 HAL 驱动文件
-* `User/`: BootLoader 核心跳转与协议逻辑
+* `User/`: Bootloader 核心跳转与协议逻辑
 
 
 ### 🏗️ Flash 地址规划
