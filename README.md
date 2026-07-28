@@ -57,6 +57,7 @@
 
 ### 2. App工程调整
 App 工程需要将 Flash 起始地址配置为 0x08008000，并同步修改中断向量表偏移。如图所示:
+<img width="300" height="300" alt="2026-07-28_181112" src="https://github.com/user-attachments/assets/33e9fb19-1554-4007-ae57-d4a25b21cc90" /><img width="300" height="300" alt="图片" src="https://github.com/user-attachments/assets/4b814f7b-5374-43ba-9ee1-542eac183b74" />
 
 ### 2. Bootloader 触发逻辑
 1. 将板子**上电**或按下**复位键**。
